@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="image-container">
+                <img src="./images/logo.svg" alt="Logo">
+            </div>
+
+            <nav class="links-container">
+                <a class="sidebar-link" href="#">
+                    <img src="./images/home.svg" alt="">
+                    Dashboard
+                </a>
+
+                <a class="sidebar-link active" href="#">
+                    <img src="./images/user.svg" alt="">
+                    User Management
+                </a>
+
+                <a class="sidebar-link" href="#">
+                    <img src="./images/player.svg" alt="">
+                    Player Management
+                </a>
+
+                <a class="sidebar-link" href="#">
+                    <img src="./images/document-text.svg" alt="">
+                    Content Management
+                </a>
+            </nav>
+
+        </aside>
+        <div class="sidebar-overlay"></div>
+
+        <div class="layout">
+
+            <header class="header">
+                <div class="left-header">
+                    <img id="hamburger-btn" src="./images/hamburger.svg">
+                    <div class="search-div">
+                        <div class="search-bar">
+                            <img src="./images/search.svg" alt="search">
+                            <label class="search-label">Search</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-header">
+                    <div class="notification-div">
+                        <img src="./images/notification.svg">
+                        <span class="count">6</span>
+                    </div>
+                    <div class="profile-div">
+                        <img src="./images/man.svg">
+                        <div class="name-role">
+                            <span class="name">Jemie Smith</span>
+                            <span class="role">Admin</span>
+                        </div>
+                        <div class="down-carat">
+                            <img src="./images/down-carat.svg" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main">
+                <h1>User List</h1>
+
+                <div class="filter">
+                    <div class="filter-item">
+                        <img src="./images/filter.svg">
+                        <span>Filter By</span>
+                    </div>
+                    <div class="filter-item">
+                        <span>Favourite Team</span>
+                        <img src="./images/down-carat.svg">
+
+                        <div class="dropdown">
+                            <div class="dropdown-span"><span>Select Favourite Team</span></div>
+                            <div class="dropdown-item">
+                                <input class="dropdown-checkbox" type="checkbox">
+                                <img class="dropdown-image" src="images/vikings.svg">
+                                <div class="dropdown-name">Vikings Rugby</div>
+                            </div>
+                            <div class="dropdown-item">
+                                <input class="dropdown-checkbox" type="checkbox">
+                                <img class="dropdown-image" src="images/western-force.svg">
+                                <div class="dropdown-name">Western Force</div>
+                            </div>
+                            <div class="dropdown-item">
+                                <input class="dropdown-checkbox" type="checkbox">
+                                <img class="dropdown-image" src="images/melbourne-rising.svg">
+                                <div class="dropdown-name">Melbourne Rising</div>
+                            </div>
+                            <div class="dropdown-item">
+                                <input class="dropdown-checkbox" type="checkbox">
+                                <img class="dropdown-image" src="images/vikings.svg">
+                                <div class="dropdown-name">Vikings Rugby</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <span>Age Group</span>
+                        <img src="./images/down-carat.svg">
+                    </div>
+                    <div class="filter-item">
+                        <span>State</span>
+                        <img src="./images/down-carat.svg">
+                    </div>
+                    <div class="filter-item">
+                        <span>Reset Filter</span>
+                        <img src="./images/reset.svg">
+                    </div>
+                </div>
+
+                <div class="table-pagination">
+                    <div class="table-container">
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Name</th>
+                                    <th>Favourite Team</th>
+                                    <th>Age Group</th>
+                                    <th>State</th>
+                                    <th>Registration Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Christine Brooks</td>
+                                    <td>Melbourne Team</td>
+                                    <td>18-25</td>
+                                    <td>Melbourne</td>
+                                    <td>18 Sept, 2024</td>
+                                    <td class="action-cell">
+
+                                        <img class="view-more-btn" src="images/view-more.svg">
+
+                                        <div class="action-dropdown">
+
+                                            <div class="action-item">
+                                                <img src="images/view.svg">
+                                                <span>View Detail</span>
+                                            </div>
+
+                                            <div class="action-item">
+                                                <img src="images/edit.svg">
+                                                <span>Edit</span>
+                                            </div>
+
+                                            <div class="action-item delete">
+                                                <img src="images/delete.svg">
+                                                <span>Delete</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <div class="count">
+                            <span>1-10 of 100</span>
+                        </div>
+                        <div class="links">
+                            <div class="left-arrow">
+                                <img src="./images/left-arrow.svg" alt="previous">
+                            </div>
+
+                            <div class="right-arrow">
+                                <img src="./images/right-arrow.svg" alt="next">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+    document.querySelector(".search-bar").addEventListener("click", function (e) {
+        this.querySelector("input").focus();
+    });
+
+    const filterItems = document.querySelectorAll('.filter-item');
+
+    filterItems.forEach(item => {
+
+        item.addEventListener('click', (e) => {
+
+            e.stopPropagation();
+
+            const dropdown = item.querySelector('.dropdown');
+
+            // ignore items without dropdown
+            if (!dropdown) return;
+
+            const isOpen = dropdown.classList.contains('active');
+
+            // close all dropdowns
+            document.querySelectorAll('.dropdown').forEach(menu => {
+                menu.classList.remove('active');
+            });
+
+            // reopen current one if it was closed
+            if (!isOpen) {
+                dropdown.classList.add('active');
+            }
+        });
+    });
+
+
+    // IMPORTANT
+    // stop clicks inside dropdown from bubbling
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+
+
+    // close only when clicking outside filter
+    document.addEventListener('click', (e) => {
+
+        if (!e.target.closest('.filter')) {
+
+            document.querySelectorAll('.dropdown').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+    });
+
+    /* ACTION MENU */
+
+    const actionButtons = document.querySelectorAll('.view-more-btn');
+
+    actionButtons.forEach(button => {
+
+        button.addEventListener('click', (e) => {
+
+            e.stopPropagation();
+
+            const dropdown = button
+                .closest('.action-cell')
+                .querySelector('.action-dropdown');
+
+            const isOpen = dropdown.classList.contains('active');
+
+            // close all
+            document.querySelectorAll('.action-dropdown').forEach(menu => {
+                menu.classList.remove('active');
+            });
+
+            // reopen current
+            if (!isOpen) {
+                dropdown.classList.add('active');
+            }
+        });
+    });
+
+
+    /* prevent inside clicks from closing */
+    document.querySelectorAll('.action-dropdown').forEach(dropdown => {
+
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+    });
+
+
+    /* close on outside click */
+    document.addEventListener('click', () => {
+
+        document.querySelectorAll('.action-dropdown').forEach(menu => {
+            menu.classList.remove('active');
+        });
+
+    });
+
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+
+    const sidebar = document.querySelector('.sidebar');
+
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+    hamburgerBtn.addEventListener('click', () => {
+
+        sidebar.classList.toggle('active');
+
+        sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+
+        sidebar.classList.remove('active');
+
+        sidebarOverlay.classList.remove('active');
+    });
+</script>
+
+</html>

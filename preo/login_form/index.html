@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<main class="login">
+    <section class="login-card">
+
+        <img class="logo" src="./images/Logo.png" alt="Logo">
+
+        <header class="login-header">
+            <h1>Login to Account</h1>
+            <p>Please enter your email and password to continue</p>
+        </header>
+
+        <form class="login-form">
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <input type="email" id="email" placeholder="" required>
+                <label for="email">Email Address</label>
+                <span class="error-message">Invalid Email</span>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group password-group">
+                <input type="password" id="password" placeholder="">
+                <label for="password">Password</label>
+
+                <button type="button" class="toggle-password" id="togglePassword">
+                    <img src="./images/eye-slash.png" alt="toggle">
+                </button>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="form-actions">
+                <label class="remember-me">
+                    <input type="checkbox">
+                    <span>Remember password</span>
+                </label>
+
+                <a href="./forgot-password.html">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-button">
+                Login
+            </button>
+
+        </form>
+
+    </section>
+</main>
+
+<script>
+    const password = document.getElementById("password");
+    const toggle = document.getElementById("togglePassword");
+    const icon = toggle.querySelector("img");
+
+    let visible = false;
+
+    toggle.addEventListener("click", () => {
+        visible = !visible;
+        password.type = visible ? "text" : "password";
+
+        icon.src = visible
+            ? "./images/eye-slash.png"
+            : "./images/eye-slash.png";
+    });
+</script>
+
+</body>
+</html>

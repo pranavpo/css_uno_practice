@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+}
+
+body {
+    background: #F8F8F8;
+}
+
+/* APP */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 998;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    width: 239px;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #E7E9EC;
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar .image-container {
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #E7E9EC;
+}
+
+.sidebar .links-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 16px;
+    gap: 28px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: #56687A;
+}
+
+.sidebar-link.active {
+    font-weight: 600;
+    color: #0E2741;
+}
+
+/* LAYOUT */
+.layout {
+    margin-left: 239px;
+    width: 100%;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 239px);
+    height: 80px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-left: 1px solid #E7E9EC;
+    z-index: 10;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.search-bar {
+    width: 388px;
+    height: 38px;
+    background: #F8F8F8;
+    border: 1px solid #B7BEC6;
+    border-radius: 19px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+}
+
+.mobile-search-btn {
+    display: none;
+    cursor: pointer;
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* MAIN */
+main {
+    margin-top: 110px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* FILTER */
+.filter {
+    display: flex;
+    border: 1px solid #E7E9EC;
+    border-radius: 14px;
+    overflow: visible;
+    width: fit-content;
+    background: #fff;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-right: 1px solid #E7E9EC;
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-item:last-child {
+    border-right: none;
+    color: #F93642;
+}
+
+.dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #E7E9EC;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: none;
+    flex-direction: column;
+    min-width: 300px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 50;
+}
+
+.dropdown.active {
+    display: flex;
+}
+
+.dropdown-item {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-item:hover {
+    background: #F5F7FA;
+}
+
+/* TABLE */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #B7BEC6;
+    border-radius: 14px;
+    min-width: 900px;
+    background: #fff;
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #B7BEC6;
+}
+
+.user-table th {
+    background: #F8F8F8;
+}
+
+/* ACTION */
+.action-cell {
+    position: relative;
+}
+
+.action-dropdown {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    background: #fff;
+    width: 170px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    display: none;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.action-dropdown.active {
+    display: flex;
+}
+
+.action-item {
+    padding: 10px 14px;
+    display: flex;
+    gap: 10px;
+}
+
+.action-item:hover {
+    background: #F5F7FA;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    .layout {
+        margin-left: 0;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .mobile-search-btn {
+        display: block;
+    }
+
+    .search-bar.mobile {
+        display: flex;
+        position: absolute;
+        top: 80px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+
+    .filter {
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="image-container">
+            <img src="./images/logo.svg">
+        </div>
+
+        <nav class="links-container">
+            <a class="sidebar-link active" href="#">Dashboard</a>
+            <a class="sidebar-link" href="#">Users</a>
+            <a class="sidebar-link" href="#">Players</a>
+            <a class="sidebar-link" href="#">Content</a>
+        </nav>
+    </aside>
+
+    <div class="layout">
+
+        <header class="header">
+            <div class="left-header">
+                <img class="hamburger" src="./images/hamburger.svg">
+                <div class="search-bar">
+                    <img src="./images/search.svg">
+                    <input placeholder="Search">
+                </div>
+                <img class="mobile-search-btn" src="./images/search.svg">
+            </div>
+
+            <div class="right-header">
+                <img src="./images/notification.svg">
+                <img src="./images/man.svg">
+            </div>
+        </header>
+
+        <main>
+
+            <h1>User List</h1>
+
+            <div class="filter">
+                <div class="filter-item">Filter</div>
+
+                <div class="filter-item">
+                    Team
+                    <div class="dropdown">
+                        <div class="dropdown-item">Team 1</div>
+                        <div class="dropdown-item">Team 2</div>
+                    </div>
+                </div>
+
+                <div class="filter-item">Age</div>
+                <div class="filter-item">State</div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Team</th>
+                            <th>Age</th>
+                            <th>State</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John</td>
+                            <td>Team A</td>
+                            <td>22</td>
+                            <td>NY</td>
+                            <td class="action-cell">
+                                <img class="view-more" src="./images/view-more.svg">
+
+                                <div class="action-dropdown">
+                                    <div class="action-item">View</div>
+                                    <div class="action-item">Edit</div>
+                                    <div class="action-item">Delete</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+    </div>
+</div>
+
+<script>
+const sidebar = document.querySelector('.sidebar');
+const overlay = document.querySelector('.overlay');
+const hamburger = document.querySelector('.hamburger');
+
+hamburger.onclick = () => {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+};
+
+overlay.onclick = () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+};
+
+const searchBtn = document.querySelector('.mobile-search-btn');
+const searchBar = document.querySelector('.search-bar');
+
+searchBtn.onclick = () => {
+    searchBar.classList.toggle('mobile');
+};
+
+document.querySelectorAll('.filter-item').forEach(item => {
+    item.onclick = (e) => {
+        const dropdown = item.querySelector('.dropdown');
+        if (!dropdown) return;
+
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        dropdown.classList.toggle('active');
+        e.stopPropagation();
+    };
+});
+
+document.querySelectorAll('.view-more').forEach(btn => {
+    btn.onclick = (e) => {
+        const menu = btn.closest('.action-cell').querySelector('.action-dropdown');
+        document.querySelectorAll('.action-dropdown').forEach(m => m.classList.remove('active'));
+        menu.classList.toggle('active');
+        e.stopPropagation();
+    };
+});
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown, .action-dropdown').forEach(el => {
+        el.classList.remove('active');
+    });
+});
+</script>
+
+</body>
+</html>
