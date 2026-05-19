@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <style>
+        .search-component {
+            position: relative;
+            width: 100%;
+            max-width: 388px;
+        }
+
+        .search-toggle {
+            display: none;
+        }
+
+        .mobile-search-icon {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+        }
+
+        .mobile-search-icon img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .search-div {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 38px;
+            border: 1px solid #B7BEC6;
+            border-radius: 19px;
+            background-color: #f8f8f8;
+            padding-left: 43px;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+        }
+
+        @media(max-width: 768px) {
+            .search-component {
+                width: auto;
+            }
+
+            ;
+
+            .mobile-search-icon {
+                display: flex;
+            }
+
+            .search-div {
+                position: fixed;
+                top: 90px;
+                left: 16px;
+                right: 16px;
+                width: auto;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: 0.25s ease;
+                z-index: 1200;
+            }
+
+            .search-toggle:checked~.search-div {
+                opacity: 1;
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-component">
+        <input type="checkbox" id="search-toggle" class="search-toggle">
+
+        <label for="search-toggle" class="mobile-search-icon">
+            <img src="./images/search.svg" alt="search">
+        </label>
+
+        <div class="search-div">
+            <img class="search-icon" src="./images/search.svg">
+            <input type="text" placeholder="Search" class="search-input">
+        </div>
+    </div>
+</body>
+
+</html>

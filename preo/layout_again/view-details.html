@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preo</title>
+
+    <link rel="stylesheet" href="view-details.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="image-container">
+                <img src="./images/logo.svg" alt="Logo">
+            </div>
+
+            <nav class="links-container">
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/home.svg" alt="">
+                    Dashboard
+                </a>
+
+                <a class="sidebar-link active" href="./user-management.html">
+                    <img class="active-icon" src="./images/user.svg" alt="active icon">
+                    <img class="inactive-icon" src="./images/user-inactive.svg" alt="inactive icon">
+                    User Management
+                </a>
+
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/player.svg" alt="">
+                    Player Management
+                </a>
+
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/document-text.svg" alt="">
+                    Content Management
+                </a>
+            </nav>
+        </aside>
+
+
+        <!-- LAYOUT -->
+        <div class="layout">
+
+            <header class="header">
+
+                <!-- LEFT HEADER -->
+                <div class="left-header">
+
+                    <!-- HAMBURGER -->
+                    <button class="icon-btn hamburger-btn" id="hamburgerBtn">
+                        <img class="hamburger" src="./images/hamburger.svg" alt="menu">
+                    </button>
+
+
+                    <!-- SEARCH -->
+                    <div class="search-component">
+
+                        <input type="checkbox" id="search-toggle" class="search-toggle">
+
+                        <!-- MOBILE SEARCH ICON -->
+                        <label for="search-toggle" class="mobile-search-icon">
+                            <img src="./images/search.svg" alt="search">
+                        </label>
+
+                        <!-- SEARCH BAR -->
+                        <div class="search-div">
+
+                            <input type="text" id="search" placeholder="Search" class="search">
+
+                            <img src="./images/search.svg" alt="search">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT HEADER -->
+                <div class="right-header">
+
+                    <!-- NOTIFICATION -->
+                    <div class="notification">
+
+                        <img class="notification-bell" src="./images/notification.svg" alt="notification">
+
+                        <span class="notification-count">6</span>
+
+                    </div>
+
+
+                    <!-- PROFILE -->
+                    <div class="profile-component">
+
+                        <input type="checkbox" id="profile-toggle" class="profile-toggle">
+
+                        <label for="profile-toggle" class="profile-trigger">
+
+                            <div class="profile-image">
+                                <img src="./images/man.svg" alt="profile">
+                            </div>
+
+                            <div class="name-role">
+                                <span class="name">Jemie Smith</span>
+                                <span class="role">Admin</span>
+                            </div>
+
+                            <div class="down-carat">
+                                <img src="./images/down-carat.svg" alt="dropdown">
+                            </div>
+
+                        </label>
+
+
+                        <!-- MOBILE DROPDOWN -->
+                        <div class="profile-dropdown-mobile">
+
+                            <div class="mobile-profile-content">
+
+                                <div class="profile-image">
+                                    <img src="./images/man.svg" alt="profile">
+                                </div>
+
+                                <div class="name-role">
+                                    <span class="name">Jemie Smith</span>
+                                    <span class="role">Admin</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- MAIN -->
+            <main>
+                <div class="back-button">
+                    <a href="./user-management.html">
+                        <img src="./images/back.svg">
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="profile-left">
+
+                            <div class="profile-image">
+                                <img src="./images/sarah.svg" alt="profile">
+                            </div>
+
+                            <div class="profile-info">
+                                <h2>Sarah Lee</h2>
+
+                                <div class="phone">
+                                    <img src="./images/phone.svg">
+                                    <span>045268786</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="edit-btn" id="editBtn">Edit User</button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- VIEW MODE -->
+                        <div class="view-mode" id="viewMode">
+
+                            <div class="info-grid">
+
+                                <div class="info-item">
+                                    <span class="info-label">First Name</span>
+                                    <span class="info-value" id="viewFirstName">Sarah</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Last Name</span>
+                                    <span class="info-value" id="viewLastName">Lee</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Mobile Number</span>
+                                    <span class="info-value" id="viewMobile">045268786</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Email Address</span>
+                                    <span class="info-value" id="viewEmail">brooklyn@example.com</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Date of Birth</span>
+                                    <span class="info-value" id="viewDob">July 14, 1995</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Age Range</span>
+                                    <span class="info-value" id="viewAge">18-24</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Gender</span>
+                                    <span class="info-value" id="viewGender">Female</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Favourite Team</span>
+                                    <span class="info-value" id="viewTeam">Vikings Rugby</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">Country</span>
+                                    <span class="info-value" id="viewCountry">Australia</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <span class="info-label">City</span>
+                                    <span class="info-value" id="viewCity">Gold Coast</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- EDIT MODE -->
+                        <form class="edit-form" id="editForm">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <input type="text" id="firstName" value="Sarah" placeholder=" ">
+                                    <label for="firstName">First Name</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="lastName" value="Lee" placeholder=" ">
+                                    <label for="lastName">Last Name</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="mobile" value="045268786" placeholder=" ">
+                                    <label for="mobile">Mobile Number</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" id="email" value="brooklyn@example.com" placeholder=" ">
+                                    <label for="email">Email Address</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="dob" value="July 14, 1995" placeholder=" ">
+                                    <label for="dob">Date of Birth</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <select id="age">
+                                        <option value="" disabled selected>Select age</option>
+                                        <option>18-24</option>
+                                        <option>25-34</option>
+                                        <option>35-44</option>
+                                    </select>
+                                    <label for="age">Age Range</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <select id="gender">
+                                        <option value="" disabled selected>Select gender</option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                    </select>
+                                    <label for="gender">Gender</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="team" value="Vikings Rugby" placeholder=" ">
+                                    <label for="team">Favourite Team</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="country" value="Australia" placeholder=" ">
+                                    <label for="country">Country</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="city" value="Gold Coast" placeholder=" ">
+                                    <label for="city">City</label>
+                                </div>
+
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-save">Save User</button>
+                                <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+
+    // OPEN SIDEBAR
+
+    hamburgerBtn.addEventListener("click", () => {
+
+        if (window.innerWidth <= 768) {
+
+            sidebar.classList.add("show-sidebar");
+            overlay.classList.add("show-overlay");
+
+        }
+
+    });
+
+
+    // CLOSE SIDEBAR
+
+    overlay.addEventListener("click", () => {
+
+        sidebar.classList.remove("show-sidebar");
+        overlay.classList.remove("show-overlay");
+
+    });
+
+
+    // sidebar link change
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            sidebarLinks.forEach(item => {
+                item.classList.remove("active")
+            })
+
+            link.classList.add("active");
+        })
+    })
+
+    const editBtn = document.getElementById('editBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    const viewMode = document.getElementById('viewMode');
+    const editForm = document.getElementById('editForm');
+
+    // ENTER EDIT MODE
+    editBtn.addEventListener('click', () => {
+
+        viewMode.classList.add('hidden');
+        editForm.classList.add('active');
+
+        editBtn.style.display = 'none';
+    });
+
+
+    // CANCEL EDIT MODE
+    cancelBtn.addEventListener('click', () => {
+
+        viewMode.classList.remove('hidden');
+        editForm.classList.remove('active');
+
+        editBtn.style.display = 'block';
+    });
+
+
+    // SAVE FORM
+    editForm.addEventListener('submit', (e) => {
+
+        e.preventDefault();
+
+        // update view mode values
+        document.getElementById('viewFirstName').textContent = document.getElementById('firstName').value;
+        document.getElementById('viewLastName').textContent = document.getElementById('lastName').value;
+        document.getElementById('viewMobile').textContent = document.getElementById('mobile').value;
+        document.getElementById('viewEmail').textContent = document.getElementById('email').value;
+        document.getElementById('viewDob').textContent = document.getElementById('dob').value;
+        document.getElementById('viewAge').textContent = document.getElementById('age').value;
+        document.getElementById('viewGender').textContent = document.getElementById('gender').value;
+        document.getElementById('viewTeam').textContent = document.getElementById('team').value;
+        document.getElementById('viewCountry').textContent = document.getElementById('country').value;
+        document.getElementById('viewCity').textContent = document.getElementById('city').value;
+
+        // change top profile info
+        document.querySelector('.profile-info h2').textContent =
+            `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+
+        document.querySelector('.phone span:last-child').textContent =
+            document.getElementById('mobile').value;
+
+        // back to view mode
+        viewMode.classList.remove('hidden');
+        editForm.classList.remove('active');
+
+        editBtn.style.display = 'block';
+    });
+
+</script>
+
+</html>

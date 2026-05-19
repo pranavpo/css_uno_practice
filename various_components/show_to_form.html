@@ -1,0 +1,462 @@
+# User Profile View/Edit Toggle Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Detail</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #F5F5F5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #E7E9EC;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #E7E9EC;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .profile-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .profile-image {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .profile-info h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #202224;
+        }
+
+        .phone {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #56687A;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            border: none;
+            background: #F93642;
+            color: white;
+            height: 40px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .edit-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .card-body {
+            padding: 28px 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px 60px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #8A94A6;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #202224;
+            font-weight: 500;
+        }
+
+        .edit-form {
+            display: none;
+        }
+
+        .edit-form.active {
+            display: block;
+        }
+
+        .view-mode.hidden {
+            display: none;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #56687A;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #D7DCE2;
+            border-radius: 12px;
+            padding: 0 14px;
+            font-size: 14px;
+            color: #202224;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #F93642;
+        }
+
+        .button-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .save-btn {
+            border: none;
+            background: #F93642;
+            color: #fff;
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .cancel-btn {
+            border: 1px solid #F93642;
+            background: transparent;
+            color: #F93642;
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .info-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="profile-left">
+
+                    <div class="profile-image">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="profile">
+                    </div>
+
+                    <div class="profile-info">
+                        <h2>Sarah Lee</h2>
+
+                        <div class="phone">
+                            <span>📞</span>
+                            <span>045268786</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="edit-btn" id="editBtn">Edit User</button>
+
+            </div>
+
+            <div class="card-body">
+
+                <!-- VIEW MODE -->
+                <div class="view-mode" id="viewMode">
+
+                    <div class="info-grid">
+
+                        <div class="info-item">
+                            <span class="info-label">First Name</span>
+                            <span class="info-value" id="viewFirstName">Sarah</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Last Name</span>
+                            <span class="info-value" id="viewLastName">Lee</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Mobile Number</span>
+                            <span class="info-value" id="viewMobile">045268786</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Email Address</span>
+                            <span class="info-value" id="viewEmail">brooklyn@example.com</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Date of Birth</span>
+                            <span class="info-value" id="viewDob">July 14, 1995</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Age Range</span>
+                            <span class="info-value" id="viewAge">18-24</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Gender</span>
+                            <span class="info-value" id="viewGender">Female</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Favourite Team</span>
+                            <span class="info-value" id="viewTeam">Vikings Rugby</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Country</span>
+                            <span class="info-value" id="viewCountry">Australia</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">City</span>
+                            <span class="info-value" id="viewCity">Gold Coast</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- EDIT MODE -->
+                <form class="edit-form" id="editForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" id="firstName" value="Sarah">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" id="lastName" value="Lee">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="text" id="mobile" value="045268786">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="email" value="brooklyn@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="text" id="dob" value="July 14, 1995">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Age Range</label>
+                            <select id="age">
+                                <option>18-24</option>
+                                <option>25-34</option>
+                                <option>35-44</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="gender">
+                                <option>Female</option>
+                                <option>Male</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Favourite Team</label>
+                            <input type="text" id="team" value="Vikings Rugby">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" id="country" value="Australia">
+                        </div>
+
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="city" value="Gold Coast">
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="save-btn">Save User</button>
+                        <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const editBtn = document.getElementById('editBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        const viewMode = document.getElementById('viewMode');
+        const editForm = document.getElementById('editForm');
+
+        // ENTER EDIT MODE
+        editBtn.addEventListener('click', () => {
+
+            viewMode.classList.add('hidden');
+            editForm.classList.add('active');
+
+            editBtn.style.display = 'none';
+        });
+
+
+        // CANCEL EDIT MODE
+        cancelBtn.addEventListener('click', () => {
+
+            viewMode.classList.remove('hidden');
+            editForm.classList.remove('active');
+
+            editBtn.style.display = 'block';
+        });
+
+
+        // SAVE FORM
+        editForm.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+
+            // update view mode values
+            document.getElementById('viewFirstName').textContent = document.getElementById('firstName').value;
+            document.getElementById('viewLastName').textContent = document.getElementById('lastName').value;
+            document.getElementById('viewMobile').textContent = document.getElementById('mobile').value;
+            document.getElementById('viewEmail').textContent = document.getElementById('email').value;
+            document.getElementById('viewDob').textContent = document.getElementById('dob').value;
+            document.getElementById('viewAge').textContent = document.getElementById('age').value;
+            document.getElementById('viewGender').textContent = document.getElementById('gender').value;
+            document.getElementById('viewTeam').textContent = document.getElementById('team').value;
+            document.getElementById('viewCountry').textContent = document.getElementById('country').value;
+            document.getElementById('viewCity').textContent = document.getElementById('city').value;
+
+            // change top profile info
+            document.querySelector('.profile-info h2').textContent =
+                `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+
+            document.querySelector('.phone span:last-child').textContent =
+                document.getElementById('mobile').value;
+
+            // back to view mode
+            viewMode.classList.remove('hidden');
+            editForm.classList.remove('active');
+
+            editBtn.style.display = 'block';
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

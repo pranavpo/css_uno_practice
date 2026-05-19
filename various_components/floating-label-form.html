@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #F8F8F8;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 16px;
+        }
+
+        /* ── CARD ── */
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #E7E9EC;
+            width: 100%;
+            max-width: 760px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* ── PROFILE HEADER ── */
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #E7E9EC;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .avatar-wrapper img.avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* red edit badge */
+        .avatar-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #DA3B30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+        }
+
+        .avatar-badge svg {
+            width: 10px;
+            height: 10px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .profile-info .full-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #0E2741;
+            line-height: 1.2;
+        }
+
+        .profile-info .phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #56687A;
+        }
+
+        .profile-info .phone svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: #56687A;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ── FORM GRID ── */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Full-width field */
+        .form-grid .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ── FLOATING LABEL FIELD ── */
+
+        .field {
+            position: relative;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            height: 56px;
+            padding: 20px 16px 6px 16px;
+            border: 1px solid #B7BEC6;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            color: #0E2741;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .field select {
+            cursor: pointer;
+        }
+
+        /* Select arrow */
+        .field .select-arrow {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #56687A;
+        }
+
+        .field select ~ .select-arrow {
+            display: block;
+        }
+
+        /* Focus border */
+        .field input:focus,
+        .field select:focus {
+            border-color: #0E2741;
+        }
+
+        /* Floating label */
+        .field label {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            color: #9FA9B3;
+            font-weight: 400;
+            pointer-events: none;
+            transition: top 0.18s ease, font-size 0.18s ease, color 0.18s ease, transform 0.18s ease;
+            line-height: 1;
+            background: transparent;
+        }
+
+        /*
+         * Label floats up when:
+         * 1. The input is focused
+         * 2. The input has a value (:not(:placeholder-shown))
+         */
+
+        .field input:focus ~ label,
+        .field input:not(:placeholder-shown) ~ label,
+        .field select:focus ~ label,
+        .field select:not([value=""]):valid ~ label,
+        .field.has-value label {
+            top: 10px;
+            transform: translateY(0);
+            font-size: 11px;
+            color: #56687A;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* Color label on focus */
+        .field input:focus ~ label,
+        .field select:focus ~ label {
+            color: #0E2741;
+        }
+
+        /* ── BUTTONS ── */
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            height: 48px;
+            padding: 0 32px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: "Inter", sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.88;
+        }
+
+        .btn-save {
+            background-color: #DA3B30;
+            color: #fff;
+        }
+
+        .btn-cancel {
+            background-color: #fff;
+            color: #DA3B30;
+            border: 1.5px solid #DA3B30;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <!-- PROFILE HEADER -->
+        <div class="profile-header">
+            <div class="avatar-wrapper">
+                <!-- Placeholder avatar — swap src for real image -->
+                <img
+                    class="avatar"
+                    src="https://i.pravatar.cc/80?img=47"
+                    alt="Sarah Lee"
+                >
+                <div class="avatar-badge">
+                    <!-- pencil icon -->
+                    <svg viewBox="0 0 12 12">
+                        <path d="M8.5 1.5 L10.5 3.5 L4 10 L1.5 10.5 L2 8 Z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <span class="full-name">Sarah Lee</span>
+                <span class="phone">
+                    <!-- phone icon -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 2.98 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 15l.02 1.92z"/>
+                    </svg>
+                    045267876
+                </span>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-grid">
+
+            <!-- Row 1 -->
+            <div class="field">
+                <input type="text" id="first-name" placeholder=" " value="Sarah">
+                <label for="first-name">First Name</label>
+            </div>
+
+            <div class="field">
+                <input type="text" id="last-name" placeholder=" " value="Lee">
+                <label for="last-name">Last Name</label>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="field">
+                <input type="email" id="email" placeholder=" ">
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="field">
+                <input type="text" id="phone" placeholder=" " value="045267876">
+                <label for="phone">Phone Number</label>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="field">
+                <input type="text" id="dob" placeholder=" ">
+                <label for="dob">Date of Birth</label>
+            </div>
+
+            <div class="field">
+                <input type="text" id="nationality" placeholder=" ">
+                <label for="nationality">Nationality</label>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="field">
+                <select id="gender">
+                    <option value="" disabled selected hidden></option>
+                    <option value="male">Male</option>
+                    <option value="female" selected>Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="gender">Gender</label>
+                <span class="select-arrow">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 5L7 9L11 5" stroke="#56687A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="field">
+                <select id="marital-status">
+                    <option value="" disabled selected hidden></option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                </select>
+                <label for="marital-status">Marital Status</label>
+                <span class="select-arrow">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 5L7 9L11 5" stroke="#56687A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="field">
+                <input type="text" id="fav-team" placeholder=" ">
+                <label for="fav-team">Favourite Team</label>
+            </div>
+
+            <div class="field">
+                <input type="text" id="age-group" placeholder=" ">
+                <label for="age-group">Age Group</label>
+            </div>
+
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="actions">
+            <button class="btn btn-save">Save User</button>
+            <button class="btn btn-cancel">Cancel</button>
+        </div>
+
+    </div>
+
+    <script>
+        /*
+         * Select elements don't fire :not(:placeholder-shown) like inputs do.
+         * We add a .has-value class to the .field when a real option is selected.
+         */
+        document.querySelectorAll('.field select').forEach(select => {
+            const field = select.closest('.field');
+
+            const check = () => {
+                if (select.value && select.value !== '') {
+                    field.classList.add('has-value');
+                } else {
+                    field.classList.remove('has-value');
+                }
+            };
+
+            check(); // run on load for pre-selected values
+            select.addEventListener('change', check);
+        });
+    </script>
+
+</body>
+</html>
