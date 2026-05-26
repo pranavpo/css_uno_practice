@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Up Down Div</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-and-icons">
+            <h2>How does the app work?</h2>
+            <div class="icons-container">
+                <img id="downIcon" class="down-icon" src="./images/down.svg">
+                <img id="upIcon" class="up-icon" src="./images/up.svg">
+            </div>
+        </div>
+
+        <div class="body" id="contentBody">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni distinctio earum est, nemo accusantium totam
+            neque adipisci at tenetur! Dolores laudantium adipisci explicabo similique recusandae rem reprehenderit est
+            asperiores, quam dolor! Ipsum reiciendis similique in nesciunt ratione itaque. Laborum numquam reiciendis,
+            unde dolores voluptatum nemo vitae quas eveniet soluta at.
+        </div>
+    </div>
+</body>
+
+<script>
+    let downImage = document.getElementById("downIcon");
+    let upImage = document.getElementById("upIcon");
+    let contentBody = document.getElementById("contentBody");
+
+    downImage.addEventListener("click", () => {
+        upImage.style.display = "block";
+        downImage.style.display = "none";
+
+        contentBody.classList.add("open");
+    });
+
+    upImage.addEventListener("click", () => {
+        upImage.style.display = "none";
+        downImage.style.display = "block";
+
+        contentBody.classList.remove("open");
+    });
+</script>
+
+</html>

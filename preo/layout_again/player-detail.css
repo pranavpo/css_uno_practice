@@ -638,6 +638,14 @@ main {
     background: transparent;
 }
 
+.form-group img{
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    height: 24px;
+    width: 24px;
+}
+
 .button-group {
     display: flex;
     align-items: center;
@@ -673,6 +681,116 @@ main {
     background-color: #fff;
     color: #DA3B30;
     border: 1.5px solid #DA3B30;
+}
+
+.team-group {
+    position: relative;
+}
+
+/* dropdown already exists — reuse it */
+.team-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #E7E9EC;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.team-dropdown.active {
+    display: flex;
+}
+
+/* item layout */
+.team-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.team-dropdown .dropdown-item:hover {
+    background: #F5F7FA;
+}
+
+/* circular checkbox */
+.team-dropdown .circle {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #9FA9B3;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* selected state */
+.team-dropdown .dropdown-item.active .circle {
+    border: 6px solid #DA3B30;
+}
+
+/* text */
+.team-dropdown span {
+    font-size: 14px;
+    color: #0E2741;
+}
+
+.position-group {
+    position: relative;
+}
+
+.position-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #E7E9EC;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.position-dropdown.active {
+    display: flex;
+}
+
+.position-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.position-dropdown .dropdown-item:hover {
+    background: #F5F7FA;
+}
+
+.position-dropdown .circle {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #9FA9B3;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.position-dropdown .dropdown-item.active .circle {
+    border: 6px solid #DA3B30;
+}
+
+.position-dropdown span {
+    font-size: 14px;
+    color: #0E2741;
 }
 
 

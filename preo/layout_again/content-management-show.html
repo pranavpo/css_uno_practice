@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Management Create</title>
+
+    <link rel="stylesheet" href="content-management-show.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="image-container">
+                <img src="./images/logo.svg" alt="Logo" />
+            </div>
+
+            <nav class="links-container">
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/home.svg" alt="" />
+                    Dashboard
+                </a>
+
+                <a class="sidebar-link active" href="./user-management.html">
+                    <img class="active-icon" src="./images/user.svg" alt="active icon" />
+                    <img class="inactive-icon" src="./images/user-inactive.svg" alt="inactive icon" />
+                    User Management
+                </a>
+
+                <a class="sidebar-link" href="./player-management.html">
+                    <img class="active-icon" src="./images/player-active.svg" alt="" />
+                    <img class="inactive-icon" src="./images/player.svg" alt="" />
+                    Player Management
+                </a>
+
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/document-text.svg" alt="" />
+                    Content Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- LAYOUT -->
+        <div class="layout">
+            <header class="header">
+                <!-- LEFT HEADER -->
+                <div class="left-header">
+                    <!-- HAMBURGER -->
+                    <button class="icon-btn hamburger-btn" id="hamburgerBtn">
+                        <img class="hamburger" src="./images/hamburger.svg" alt="menu" />
+                    </button>
+
+                    <!-- SEARCH -->
+                    <div class="search-component">
+                        <input type="checkbox" id="search-toggle" class="search-toggle" />
+
+                        <!-- MOBILE SEARCH ICON -->
+                        <label for="search-toggle" class="mobile-search-icon">
+                            <img src="./images/search.svg" alt="search" />
+                        </label>
+
+                        <!-- SEARCH BAR -->
+                        <div class="search-div">
+                            <input type="text" id="search" placeholder="Search" class="search" />
+
+                            <img src="./images/search.svg" alt="search" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT HEADER -->
+                <div class="right-header">
+                    <!-- NOTIFICATION -->
+                    <div class="notification">
+                        <img class="notification-bell" src="./images/notification.svg" alt="notification" />
+
+                        <span class="notification-count">6</span>
+                    </div>
+
+                    <!-- PROFILE -->
+                    <div class="profile-component">
+                        <input type="checkbox" id="profile-toggle" class="profile-toggle" />
+
+                        <label for="profile-toggle" class="profile-trigger">
+                            <div class="profile-image">
+                                <img src="./images/man.svg" alt="profile" />
+                            </div>
+
+                            <div class="name-role">
+                                <span class="name">Jemie Smith</span>
+                                <span class="role">Admin</span>
+                            </div>
+
+                            <div class="down-carat">
+                                <img src="./images/down-carat.svg" alt="dropdown" />
+                            </div>
+                        </label>
+
+                        <!-- MOBILE DROPDOWN -->
+                        <div class="profile-dropdown-mobile">
+                            <div class="mobile-profile-content">
+                                <div class="profile-image">
+                                    <img src="./images/man.svg" alt="profile" />
+                                </div>
+
+                                <div class="name-role">
+                                    <span class="name">Jemie Smith</span>
+                                    <span class="role">Admin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main>
+                <h1>Content Management</h1>
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Terms and Condition</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>Title</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non et saepe dolorem incidunt
+                            blanditiis nemo, laboriosam maiores iure amet rerum quaerat sint facilis nulla ea quae hic
+                            porro possimus obcaecati ducimus ipsum dicta explicabo optio quam quia.</p><br>
+                        <p>Nihil ipsam accusamus vel, tenetur nobis eaque corporis, facere consectetur consequuntur
+                            dolorum doloribus totam obcaecati voluptatum explicabo distinctio aut sapiente temporibus
+                            suscipit veniam!</p><br>
+                        <p>Nihil culpa reiciendis dolore qui saepe harum, doloribus doloremque hic, magni quisquam, id
+                            officiis reprehenderit. Porro itaque totam hic et animi distinctio, aliquid ipsum dolore
+                            sint, a laboriosam eos alias nulla non? Ratione, necessitatibus! Suscipit, natus culpa!
+                            Velit>, enim quam!</p><br>
+                    </div>
+                    <div class="edit-button">
+                        <button class="save" type="submit" name="action" value="save">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Privacy Policy</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>Title</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non et saepe dolorem incidunt
+                            blanditiis nemo, laboriosam maiores iure amet rerum quaerat sint facilis nulla ea quae hic
+                            porro possimus obcaecati ducimus ipsum dicta explicabo optio quam quia.</p><br>
+                        <p>Nihil ipsam accusamus vel, tenetur nobis eaque corporis, facere consectetur consequuntur
+                            dolorum doloribus totam obcaecati voluptatum explicabo distinctio aut sapiente temporibus
+                            suscipit veniam!</p><br>
+                        <p>Nihil culpa reiciendis dolore qui saepe harum, doloribus doloremque hic, magni quisquam, id
+                            officiis reprehenderit. Porro itaque totam hic et animi distinctio, aliquid ipsum dolore
+                            sint, a laboriosam eos alias nulla non? Ratione, necessitatibus! Suscipit, natus culpa!
+                            Velit>, enim quam!</p><br>
+                    </div>
+                    <div class="edit-button">
+                        <button class="save" type="submit" name="action" value="save">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    // OPEN SIDEBAR
+
+    hamburgerBtn.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add("show-sidebar");
+            overlay.classList.add("show-overlay");
+        }
+    });
+
+    // CLOSE SIDEBAR
+
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show-sidebar");
+        overlay.classList.remove("show-overlay");
+    });
+
+    // sidebar link change
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+    sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            sidebarLinks.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            link.classList.add("active");
+        });
+    });
+</script>
+
+</html>

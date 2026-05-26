@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Up Down Component</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <img id="downImage" class="down-image" src="./images/down.svg" />
+        <img id="upImage" class="up-image" src="./images/up.svg" />
+    </div>
+</body>
+
+<script>
+    let downImage = document.getElementById("downImage");
+    let upImage = document.getElementById("upImage");
+    // console.log(downImage)
+    downImage.addEventListener("click", () => {
+        upImage.style.display = "block";
+        downImage.style.display = "none";
+    });
+
+    upImage.addEventListener("click", () => {
+        upImage.style.display = "none";
+        downImage.style.display = "block";
+    });
+</script>
+
+</html>

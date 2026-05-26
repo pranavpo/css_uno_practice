@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Management Create</title>
+
+    <link rel="stylesheet" href="faq.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="image-container">
+                <img src="./images/logo.svg" alt="Logo" />
+            </div>
+
+            <nav class="links-container">
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/home.svg" alt="" />
+                    Dashboard
+                </a>
+
+                <a class="sidebar-link active" href="./user-management.html">
+                    <img class="active-icon" src="./images/user.svg" alt="active icon" />
+                    <img class="inactive-icon" src="./images/user-inactive.svg" alt="inactive icon" />
+                    User Management
+                </a>
+
+                <a class="sidebar-link" href="./player-management.html">
+                    <img class="active-icon" src="./images/player-active.svg" alt="" />
+                    <img class="inactive-icon" src="./images/player.svg" alt="" />
+                    Player Management
+                </a>
+
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/document-text.svg" alt="" />
+                    Content Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- LAYOUT -->
+        <div class="layout">
+            <header class="header">
+                <!-- LEFT HEADER -->
+                <div class="left-header">
+                    <!-- HAMBURGER -->
+                    <button class="icon-btn hamburger-btn" id="hamburgerBtn">
+                        <img class="hamburger" src="./images/hamburger.svg" alt="menu" />
+                    </button>
+
+                    <!-- SEARCH -->
+                    <div class="search-component">
+                        <input type="checkbox" id="search-toggle" class="search-toggle" />
+
+                        <!-- MOBILE SEARCH ICON -->
+                        <label for="search-toggle" class="mobile-search-icon">
+                            <img src="./images/search.svg" alt="search" />
+                        </label>
+
+                        <!-- SEARCH BAR -->
+                        <div class="search-div">
+                            <input type="text" id="search" placeholder="Search" class="search" />
+
+                            <img src="./images/search.svg" alt="search" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT HEADER -->
+                <div class="right-header">
+                    <!-- NOTIFICATION -->
+                    <div class="notification">
+                        <img class="notification-bell" src="./images/notification.svg" alt="notification" />
+
+                        <span class="notification-count">6</span>
+                    </div>
+
+                    <!-- PROFILE -->
+                    <div class="profile-component">
+                        <input type="checkbox" id="profile-toggle" class="profile-toggle" />
+
+                        <label for="profile-toggle" class="profile-trigger">
+                            <div class="profile-image">
+                                <img src="./images/man.svg" alt="profile" />
+                            </div>
+
+                            <div class="name-role">
+                                <span class="name">Jemie Smith</span>
+                                <span class="role">Admin</span>
+                            </div>
+
+                            <div class="down-carat">
+                                <img src="./images/down-carat.svg" alt="dropdown" />
+                            </div>
+                        </label>
+
+                        <!-- MOBILE DROPDOWN -->
+                        <div class="profile-dropdown-mobile">
+                            <div class="mobile-profile-content">
+                                <div class="profile-image">
+                                    <img src="./images/man.svg" alt="profile" />
+                                </div>
+
+                                <div class="name-role">
+                                    <span class="name">Jemie Smith</span>
+                                    <span class="role">Admin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main>
+                <h1>Frequently Asked Questions</h1>
+
+                <div class="accordion-form-container">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3>How does the app work?</h3>
+                                <div class="icons">
+                                    <span class="icon"><img src="./images/pen.svg"></span>
+                                    <span class="icon"><img src="./images/trash.svg"></span>
+                                    <span class="icon"><img src="./images/form-down-carat.svg"></span>
+                                </div>
+                            </div>
+                            <div class="accordion-body">
+                                <h4>Account Details</h4>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                                <br>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3>How does the app work?</h3>
+                                <div class="icons">
+                                    <span class="icon"><img src="./images/pen.svg"></span>
+                                    <span class="icon"><img src="./images/trash.svg"></span>
+                                    <span class="icon"><img src="./images/form-down-carat.svg"></span>
+                                </div>
+                            </div>
+                            <div class="accordion-body">
+                                <h4>Account Details</h4>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                                <br>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3>How does the app work?</h3>
+                                <div class="icons">
+                                    <span class="icon"><img src="./images/pen.svg"></span>
+                                    <span class="icon"><img src="./images/trash.svg"></span>
+                                    <span class="icon"><img src="./images/form-down-carat.svg"></span>
+                                </div>
+                            </div>
+                            <div class="accordion-body">
+                                <h4>Account Details</h4>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                                <br>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3>How does the app work?</h3>
+                                <div class="icons">
+                                    <span class="icon"><img src="./images/pen.svg"></span>
+                                    <span class="icon"><img src="./images/trash.svg"></span>
+                                    <span class="icon"><img src="./images/form-down-carat.svg"></span>
+                                </div>
+                            </div>
+                            <div class="accordion-body">
+                                <h4>Account Details</h4>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                                <br>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3>How does the app work?</h3>
+                                <div class="icons">
+                                    <span class="icon"><img src="./images/pen.svg"></span>
+                                    <span class="icon"><img src="./images/trash.svg"></span>
+                                    <span class="icon"><img src="./images/form-down-carat.svg"></span>
+                                </div>
+                            </div>
+                            <div class="accordion-body">
+                                <h4>Account Details</h4>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                                <br>
+                                <p>
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                    Within this clause, you should use language that explains that anyone using your
+                                    service, platform, or site must follow the terms, and continuing to operate your
+                                    platform implies they agree to the terms.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form">
+                        <h3>Add Questions and Answers</h3>
+                        <form>
+                            <input type="text" class="form-input" placeholder="Enter Title">
+                            <div class="form-group category-group">
+                                <input type="text" id="category" placeholder="Select Category" readonly />
+
+                                <img class="select-carat" src="./images/form-down-carat.svg" alt="dropdown" />
+
+                                <!-- DROPDOWN -->
+                                <div class="dropdown category-dropdown">
+
+                                    <div class="dropdown-item" data-value="General">
+                                        <div class="circle"></div>
+                                        <span>General</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Account">
+                                        <div class="circle"></div>
+                                        <span>Account</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Billing">
+                                        <div class="circle"></div>
+                                        <span>Billing</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Payments">
+                                        <div class="circle"></div>
+                                        <span>Payments</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Subscription">
+                                        <div class="circle"></div>
+                                        <span>Subscription</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Technical Support">
+                                        <div class="circle"></div>
+                                        <span>Technical Support</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Privacy">
+                                        <div class="circle"></div>
+                                        <span>Privacy</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Security">
+                                        <div class="circle"></div>
+                                        <span>Security</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Refunds">
+                                        <div class="circle"></div>
+                                        <span>Refunds</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Orders">
+                                        <div class="circle"></div>
+                                        <span>Orders</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Shipping">
+                                        <div class="circle"></div>
+                                        <span>Shipping</span>
+                                    </div>
+
+                                    <div class="dropdown-item" data-value="Other">
+                                        <div class="circle"></div>
+                                        <span>Other</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea placeholder="Enter Content" rows="5"></textarea>
+                            <div class="form-actions">
+                                <button class="save" type="submit" name="action" value="save">
+                                    Save & Publish
+                                </button>
+
+                                <button class="cancel" type="reset">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    // OPEN SIDEBAR
+
+    hamburgerBtn.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add("show-sidebar");
+            overlay.classList.add("show-overlay");
+        }
+    });
+
+    // CLOSE SIDEBAR
+
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show-sidebar");
+        overlay.classList.remove("show-overlay");
+    });
+
+    // sidebar link change
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+    sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            sidebarLinks.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            link.classList.add("active");
+        });
+    });
+
+    let accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach((item) => {
+
+        let title = item.querySelector(".accordion-header h3");
+
+        let toggleIcon = item.querySelector(".icon:last-child");
+
+        function toggleAccordion() {
+
+            accordionItems.forEach((i) => {
+                if (i !== item) {
+                    i.classList.remove("active");
+                }
+            });
+
+            item.classList.toggle("active");
+        }
+
+        title.addEventListener("click", toggleAccordion);
+
+        toggleIcon.addEventListener("click", toggleAccordion);
+    });
+
+    const categoryInput = document.getElementById("category");
+
+    const categoryDropdown = document.querySelector(".category-dropdown");
+
+    const categoryItems = document.querySelectorAll(
+        ".category-dropdown .dropdown-item"
+    );
+
+    // OPEN DROPDOWN
+    categoryInput.addEventListener("click", () => {
+        categoryDropdown.classList.toggle("active");
+    });
+
+    // SELECT CATEGORY
+    categoryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+
+            const value = item.getAttribute("data-value");
+
+            categoryInput.value = value;
+
+            categoryItems.forEach((i) => {
+                i.classList.remove("active");
+            });
+
+            item.classList.add("active");
+
+            categoryDropdown.classList.remove("active");
+
+            categoryInput.classList.add("has-value");
+        });
+    });
+
+    // CLOSE ON OUTSIDE CLICK
+    document.addEventListener("click", (e) => {
+
+        if (!e.target.closest(".category-group")) {
+            categoryDropdown.classList.remove("active");
+        }
+    });
+</script>
+
+</html>

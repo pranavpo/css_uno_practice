@@ -1,0 +1,23 @@
+const CryptoJS = require("crypto-js");
+
+const encrypted =
+  "U2FsdGVkX1/aLtapS1EaMKTRNY8GMNeQRZBELamZUyHZPosJsJUPSnh01ShBS9nEsu65mcvQVB9+PteviH/7FtwRufEUDINrrFjLVPtFGKx0fyxoXQqPZ3Nb3Wdi+cRFoNiYqg8RzwRwTT5QAIxg2++mRksgyDo93SEEcdlu0cEdOeJ0jW3tK/EbgA/ltpAy37iCGW2cxH9VIT6QI6OAJfeP2kKWw75faUpUFYtu4OJ0WPqtlqyKjX+PfWX3O67pq+CnQ8KfwwliRJ5Di3BL0nydwi8nuhsXRx54k1CZekEbcU95LbyOUukLhmuICHT//buBbslWwa388lYbjj6Y0YW6mNmXljLmZfXdSNAq5q3UKKOvet+IPgtjIVlNd/rWKtR1Jdd/pbMyGrnxJuOSnYTbxs0fcV18b/1kkCRqqL+xYZqqlODF15iyqNjkz7ASM8jRlcIKaISWRCwrYkUcWDaaRIpf/zxkNoSSe5t9aCp3/7BqvuWQcylaqYRw59ox6kPVHOEXgKYzPFpVu7gR4RyWWmzECRcqjtmUYvILaV+hnfzLGxKrYom8pJCRscgvca7ypX90rjmTXH71kk6cOJkWs5P5oqAnFWL6ZmaHovxzL1ABz4Ztzgs8m48kxcw0RYT5cF5COOS5x+0THSDVWcrE7MM2AfjK9dE4rmmqBS8/p/PgrcqeFy2ZDUtGTsxUvn/DOjpLmGByg2RenJ6wuQbaDM6zxGCcUDGFpiGtMNY2ueGba9sV7tc6Cx1w5KEneBFGK9d2DTOdCNY5PqIJO0iGQ+cVIWuDvJPPZmxIEXnq5Dk6hAKNEHFRG29PUG9Ub+BzOLOzbPVYZBIUGigvETuKZtup1wu/v1yWBYwje6izcN50nlH5NHh4HaC9CtkULa51RpnWh8BEh29P1Ec0x0h9nQT4UKjHVtMOL6p9OKFOpo4aO55KFFsNpYCS/HsXckAaDJONL3WZBggt+CR6xNnpfJjP6lgVvk7AXuCqAdgy8TicgWLa6mIn0sq75LmTggM9cunpT1YZQL5v7iCu4OXEZ8cL1n86SHB7vghVLF8buQdZOoqywuztQ0MraMVfxMfPBJOWhIDg0FFJeUL951y6bNUE3drjMQswEFdReFRnrK8KxGd9ISbr42ZlZZvzQo8DfisTZsK91W6G7FTugZqSlSCwqP9nF9SPXqNp9IzgkPT+sfYbEKZXSByYNtF64Pbu4BPDNaaYFarKpR1TwBXTSR0OqBxbluxmEb7+/Te+nLpIu0LenVmhkwuETsopKgcQuSDc/MAFckFi49grTcpsek5HF2yAU5ccdgPADQRaFGbgsFtSnYLWo7OxU9FrSPwbOKudjjQe9LXGZrne39NxhP2IFqqHSrGwhpbnb+E60e5dePubOUURqbD2JKM7r2uaSkUtmS47Z3UTcNITk4RtH0SIhM3tLrTEpXy3Rh2G9N4B9OfayyKX5eWXVjELa0n8PSNQ0WsZMi4NhaF/rVV/hty0SqfuH6HFwqHKPEd1zupm6rLaR2GsC56+Y8Fr";
+
+const key = "8C5a9o2Z8zjmCLHB";
+
+try {
+  const bytes = CryptoJS.AES.decrypt(encrypted, key);
+
+  const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+
+  console.log("DECRYPTED:");
+  console.log(decrypted);
+
+  const json = JSON.parse(decrypted);
+
+  console.log("\nPARSED JSON:");
+  console.log(json);
+
+} catch (err) {
+  console.error(err);
+}

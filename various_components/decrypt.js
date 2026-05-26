@@ -1,0 +1,1 @@
+v1/puzzle/daily?offset=${ml(new Date())}&cell=${n ? "3" : "4"}

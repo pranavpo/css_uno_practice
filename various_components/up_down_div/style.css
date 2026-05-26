@@ -1,0 +1,40 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 500px;
+    height: auto;
+    background-color: blanchedalmond;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-and-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.up-icon {
+    display: none;
+}
+
+div.body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+div.body.open{
+    max-height: 200px; /* adjust based on content */
+    opacity: 1;
+}

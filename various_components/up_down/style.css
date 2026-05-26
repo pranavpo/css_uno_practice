@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.up-image,.down-image{
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+}
+
+
+.up-image{
+    display: none;
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Management Create</title>
+
+    <link rel="stylesheet" href="broadcast.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="image-container">
+                <img src="./images/logo.svg" alt="Logo" />
+            </div>
+
+            <nav class="links-container">
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/home.svg" alt="" />
+                    Dashboard
+                </a>
+
+                <a class="sidebar-link active" href="./user-management.html">
+                    <img class="active-icon" src="./images/user.svg" alt="active icon" />
+                    <img class="inactive-icon" src="./images/user-inactive.svg" alt="inactive icon" />
+                    User Management
+                </a>
+
+                <a class="sidebar-link" href="./player-management.html">
+                    <img class="active-icon" src="./images/player-active.svg" alt="" />
+                    <img class="inactive-icon" src="./images/player.svg" alt="" />
+                    Player Management
+                </a>
+
+                <a class="sidebar-link" href="javascript:void(0)">
+                    <img src="./images/document-text.svg" alt="" />
+                    Content Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- LAYOUT -->
+        <div class="layout">
+            <header class="header">
+                <!-- LEFT HEADER -->
+                <div class="left-header">
+                    <!-- HAMBURGER -->
+                    <button class="icon-btn hamburger-btn" id="hamburgerBtn">
+                        <img class="hamburger" src="./images/hamburger.svg" alt="menu" />
+                    </button>
+
+                    <!-- SEARCH -->
+                    <div class="search-component">
+                        <input type="checkbox" id="search-toggle" class="search-toggle" />
+
+                        <!-- MOBILE SEARCH ICON -->
+                        <label for="search-toggle" class="mobile-search-icon">
+                            <img src="./images/search.svg" alt="search" />
+                        </label>
+
+                        <!-- SEARCH BAR -->
+                        <div class="search-div">
+                            <input type="text" id="search" placeholder="Search" class="search" />
+
+                            <img src="./images/search.svg" alt="search" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT HEADER -->
+                <div class="right-header">
+                    <!-- NOTIFICATION -->
+                    <div class="notification">
+                        <img class="notification-bell" src="./images/notification.svg" alt="notification" />
+
+                        <span class="notification-count">6</span>
+                    </div>
+
+                    <!-- PROFILE -->
+                    <div class="profile-component">
+                        <input type="checkbox" id="profile-toggle" class="profile-toggle" />
+
+                        <label for="profile-toggle" class="profile-trigger">
+                            <div class="profile-image">
+                                <img src="./images/man.svg" alt="profile" />
+                            </div>
+
+                            <div class="name-role">
+                                <span class="name">Jemie Smith</span>
+                                <span class="role">Admin</span>
+                            </div>
+
+                            <div class="down-carat">
+                                <img src="./images/down-carat.svg" alt="dropdown" />
+                            </div>
+                        </label>
+
+                        <!-- MOBILE DROPDOWN -->
+                        <div class="profile-dropdown-mobile">
+                            <div class="mobile-profile-content">
+                                <div class="profile-image">
+                                    <img src="./images/man.svg" alt="profile" />
+                                </div>
+
+                                <div class="name-role">
+                                    <span class="name">Jemie Smith</span>
+                                    <span class="role">Admin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main>
+                <h1>Broadcast Notification</h1>
+                <div class="broadcast-card">
+
+                    <!-- LEFT -->
+                    <div class="left-side">
+
+                        <div class="top-row">
+                            <h3>Send to Everyone</h3>
+
+                            <label class="switch">
+                                <input type="checkbox" checked />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- LOCATION -->
+                        <div class="select-group">
+                            <select>
+                                <option selected disabled>Location</option>
+                                <option>Kathmandu</option>
+                                <option>Pokhara</option>
+                                <option>Biratnagar</option>
+                            </select>
+
+                            <img class="down-carat" src="./images/form-down-carat.svg" alt="dropdown" />
+                        </div>
+
+                        <!-- AGE -->
+                        <div class="select-group">
+                            <select>
+                                <option selected disabled>Age</option>
+                                <option>18 - 24</option>
+                                <option>25 - 34</option>
+                                <option>35 - 44</option>
+                            </select>
+
+                            <img class="down-carat" src="./images/form-down-carat.svg" alt="dropdown" />
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn btn-send">Send</button>
+                            <button class="btn btn-cancel">Cancel</button>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="right-side">
+                        <textarea class="message-box" placeholder="Write Message"></textarea>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    // OPEN SIDEBAR
+
+    hamburgerBtn.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add("show-sidebar");
+            overlay.classList.add("show-overlay");
+        }
+    });
+
+    // CLOSE SIDEBAR
+
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show-sidebar");
+        overlay.classList.remove("show-overlay");
+    });
+
+    // sidebar link change
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+    sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            sidebarLinks.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            link.classList.add("active");
+        });
+    });
+</script>
+
+</html>

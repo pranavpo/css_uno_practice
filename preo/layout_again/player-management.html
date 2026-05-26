@@ -6,6 +6,7 @@
     <title>Preo</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="player-management.css"/>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
@@ -30,7 +31,7 @@
             Dashboard
           </a>
 
-          <a class="sidebar-link active" href="./user-management.html">
+          <a class="sidebar-link" href="./user-management.html">
             <img
               class="active-icon"
               src="./images/user.svg"
@@ -44,7 +45,7 @@
             User Management
           </a>
 
-          <a class="sidebar-link" href="./player-management.html">
+          <a class="sidebar-link active" href="./player-management.html">
             <img class="active-icon" src="./images/player-active.svg" alt="" />
             <img class="inactive-icon" src="./images/player.svg" alt="" />
             Player Management
@@ -145,7 +146,10 @@
 
         <!-- MAIN -->
         <main>
-          <h1>User List</h1>
+          <div class="title-button">
+            <h1>Player List</h1>
+            <button>Create Player</button>
+          </div>
 
           <div class="filter">
             <div class="filter-item">
@@ -153,7 +157,7 @@
               <span>Filter By</span>
             </div>
             <div class="filter-item">
-              <span>Favourite Team</span>
+              <span>Team</span>
               <img src="./images/down-carat.svg" />
 
               <div class="dropdown">
@@ -186,11 +190,7 @@
               </div>
             </div>
             <div class="filter-item">
-              <span>Age Group</span>
-              <img src="./images/down-carat.svg" />
-            </div>
-            <div class="filter-item">
-              <span>State</span>
+              <span>Status</span>
               <img src="./images/down-carat.svg" />
             </div>
             <div class="filter-item">
@@ -228,7 +228,7 @@
                       <img class="view-more-btn" src="images/view-more.svg" />
 
                       <div class="action-dropdown">
-                        <a class="action-href" href="./view-details.html">
+                        <a class="action-href" href="./player-details.html">
                           <div class="action-item">
                             <img src="images/view.svg" />
                             <span>View Detail</span>
